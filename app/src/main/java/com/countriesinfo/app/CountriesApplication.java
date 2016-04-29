@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.common.android.utils.ContextHelper;
 
 
-public class UserApplication extends Application {
+public class CountriesApplication extends Application {
     final ActivityLifecycleCallbacks activityLifecycleCallbacks = createActivityCallBacks();
 
     private ActivityLifecycleCallbacks createActivityCallBacks() {
