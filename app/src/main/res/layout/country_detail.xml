@@ -1,0 +1,99 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="@dimen/margin_16"
+              android:layout_gravity="center_horizontal">
+
+    <TextView
+            android:id="@+id/name"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:text="@string/name">
+    </TextView>
+
+    <ImageView
+            android:id="@+id/capitalIcon"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:src="@drawable/ic_capital"
+            style="@style/MediumText"
+            android:layout_below="@+id/name">
+    </ImageView>
+
+    <TextView
+            android:id="@+id/capital"
+            android:text="@string/capital"
+            style="@style/MediumText"
+            android:layout_below="@+id/name"
+            android:layout_toEndOf="@+id/name">
+    </TextView>
+
+    <ImageView
+            android:id="@+id/populationIcon"
+            style="@style/MediumText"
+            android:src="@drawable/ic_people"
+            android:layout_below="@+id/capital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+    </ImageView>
+
+    <TextView
+            android:id="@+id/population"
+            style="@style/MediumText"
+            android:text="@string/population"
+            android:layout_above="@+id/currenciesIcon"
+            android:layout_alignStart="@+id/capital">
+    </TextView>
+
+    <ImageView
+            android:id="@+id/currenciesIcon"
+            android:src="@drawable/ic_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/populationIcon">
+    </ImageView>
+
+    <TextView
+            android:id="@+id/currencies"
+            style="@style/MediumText"
+            android:text="@string/currencies"
+            android:layout_below="@id/population"
+            android:layout_alignStart="@+id/population">
+    </TextView>
+
+    <ImageView
+            android:id="@+id/regionIcon"
+            android:src="@drawable/ic_region"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/currencies"
+            android:layout_height="wrap_content">
+    </ImageView>
+
+    <TextView
+            android:id="@+id/region"
+            android:text="@string/region"
+            style="@style/MediumText"
+            android:layout_below="@+id/currencies"
+            android:layout_toEndOf="@+id/name">
+    </TextView>
+
+    <ImageView
+            android:id="@+id/callingCodeIcon"
+            android:src="@drawable/ic_calling_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/region">
+    </ImageView>
+
+    <TextView
+            android:id="@+id/callingCode"
+            android:text="@string/calling_code"
+            style="@style/MediumText"
+            android:layout_below="@+id/region"
+            android:layout_toEndOf="@+id/name">
+    </TextView>
+</RelativeLayout>
+
