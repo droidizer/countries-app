@@ -38,6 +38,8 @@ Non persistent of data.
 
 Not tested.
 
+Lagging coordinator scroll. Needs animation. 
+
 Flags used are OS and not of high resolution.
 
 ## How to install
