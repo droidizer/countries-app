@@ -1,4 +1,4 @@
-package com.countriesinfo.app.ui;
+package com.countriesinfo.app.ui.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
@@ -8,10 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import butterknife.ButterKnife;
+import com.common.android.utils.ContextHelper;
 import com.common.android.utils.interfaces.ILayout;
 import com.common.android.utils.interfaces.ILogTag;
+import com.countriesinfo.app.ui.helpers.IBackPress;
+import com.countriesinfo.app.ui.helpers.IToolBarTitle;
 
-public abstract class BaseFragment extends Fragment implements ILayout, ILogTag, IToolBarTitle {
+public abstract class BaseFragment extends Fragment implements ILayout, ILogTag, IToolBarTitle, IBackPress {
     protected View rootView;
 
     public BaseFragment() {
@@ -53,6 +56,9 @@ public abstract class BaseFragment extends Fragment implements ILayout, ILogTag,
         super.onDestroyView();
     }
 
-    protected abstract void onViewCreated(Bundle savedInstanceState);
+    public void onBackPressed() {
+        ContextHelper.getContext().onBackPressed();
+    }
 
+    protected abstract void onViewCreated(Bundle savedInstanceState);
 }

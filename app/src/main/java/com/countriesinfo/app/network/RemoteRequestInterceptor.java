@@ -12,11 +12,12 @@ public class RemoteRequestInterceptor implements RequestInterceptor {
     }
 
     @Override
-    public void onQueryParamsAdded(Map<String, Object> map) {
+    public void onQueryParamsAdded(final Map<String, Object> map) {
     }
 
     @Override
     public WaspRetryPolicy getRetryPolicy() {
+        // Params hardcoded to retry twice after 7200 seconds
         return new WaspRetryPolicy(7200, 2, 1.5f);
     }
 

@@ -3,19 +3,16 @@ package com.countriesinfo.app.network;
 import android.support.annotation.NonNull;
 import com.common.android.utils.interfaces.ICallback;
 import com.countriesinfo.app.Environment;
-import com.countriesinfo.app.R;
 import com.countriesinfo.app.model.Country;
+import com.countriesinfo.app.network.services.NetworkService;
 import com.orhanobut.wasp.*;
 import com.orhanobut.wasp.utils.NetworkMode;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
-import io.realm.RealmResults;
 
 import java.net.CookiePolicy;
 import java.util.List;
 
 import static com.common.android.utils.ContextHelper.getContext;
-import static de.keyboardsurfer.android.widget.crouton.Crouton.makeText;
+import static com.countriesinfo.app.network.error.ErrorHandler.handleWaspError;
 
 public class RequestProvider {
 
@@ -57,7 +54,7 @@ public class RequestProvider {
 
             @Override
             public void onError(WaspError waspError) {
-                makeText(getContext(), getContext().getString(R.string.connection_error), Style.ALERT).show();
+                handleWaspError(waspError);
             }
         });
     }

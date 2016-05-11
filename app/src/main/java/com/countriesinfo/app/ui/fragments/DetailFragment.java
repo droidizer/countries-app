@@ -11,16 +11,15 @@ import butterknife.Bind;
 import com.common.android.utils.logging.Logger;
 import com.countriesinfo.app.R;
 import com.countriesinfo.app.model.Country;
-import com.countriesinfo.app.ui.BaseFragment;
 import com.countriesinfo.app.ui.MainActivity;
+import com.countriesinfo.app.ui.helpers.IBackPress;
 import org.jetbrains.annotations.NotNull;
 import org.parceler.Parcels;
 
 import static com.bumptech.glide.Glide.with;
-import static com.countriesinfo.app.utils.LocalUtils.matchDrawable;
-import static com.countriesinfo.app.utils.LocalUtils.stripBrackets;
+import static com.countriesinfo.app.utils.LocalUtils.*;
 
-public class DetailFragment extends BaseFragment{
+public class DetailFragment extends BaseFragment {
     @NonNull
     @Bind(R.id.collapsing_toolbar)
     CollapsingToolbarLayout toolBarLayout;
@@ -68,18 +67,17 @@ public class DetailFragment extends BaseFragment{
         activity = (MainActivity) getActivity();
         activity.setSupportActionBar(toolbar);
 
-        if(!TextUtils.isEmpty(country.name))
-        activity.setTitle(country.name);
+        if (!TextUtils.isEmpty(country.name))
+            activity.setTitle(country.name);
     }
 
     @Override
     protected void onViewCreated(Bundle savedInstanceState) {
-
         Bundle bundle = getArguments();
-        if (bundle==null)
+        if (bundle == null)
             return;
 
-         country = Parcels.unwrap(bundle.getParcelable(Country.TAG));
+        country = Parcels.unwrap(bundle.getParcelable(Country.TAG));
         Logger.v(tag(), "model " + country);
 
         if (country == null)
@@ -89,12 +87,16 @@ public class DetailFragment extends BaseFragment{
         capital.setText(country.capital);
         population.setText(country.population);
         region.setText(country.region);
-        currencies.setText(stripBrackets(country.currencies.toString()));
-        callingCode.setText(stripBrackets(country.callingCodes.toString()));
+        currencies.setText(stripBrackets(listToString(country.currencies)));
+        callingCode.setText(stripBrackets(listToString(country.callingCodes)));
         with(flagIcon.getContext())
-                .load(matchDrawable(country.alpha2Code))
+                .load(matchDrawable(getContext(), country.alpha2Code))
                 .fitCenter()
                 .into(flagIcon);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

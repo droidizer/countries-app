@@ -1,4 +1,4 @@
-package com.countriesinfo.app.utils;
+package com.countriesinfo.app.ui.helpers;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import com.countriesinfo.app.R;
 import com.countriesinfo.app.model.Country;
-import com.countriesinfo.app.ui.BaseFragment;
+import com.countriesinfo.app.ui.fragments.BaseFragment;
 import com.countriesinfo.app.ui.fragments.CountriesFragment;
 import com.countriesinfo.app.ui.fragments.DetailFragment;
 import org.parceler.Parcels;
@@ -22,7 +22,6 @@ public class FragmentProvider {
         final BaseFragment fragment = newInstance(CountriesFragment.class, bundle);
         final FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.fragment_container, fragment, fragment.tag());
-        ft.addToBackStack(fragment.tag());
         ft.commit();
     }
 

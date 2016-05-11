@@ -1,4 +1,4 @@
-package com.countriesinfo.app.ui.fragments;
+package com.countriesinfo.app.ui.binders;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -14,8 +14,9 @@ import com.countriesinfo.app.model.Country;
 import org.jetbrains.annotations.NotNull;
 
 import static android.view.View.OnClickListener;
+import static com.common.android.utils.ContextHelper.getContext;
 import static com.common.android.utils.extensions.ResourceExtensions.drawable;
-import static com.countriesinfo.app.utils.FragmentProvider.showCountryDetailFragment;
+import static com.countriesinfo.app.ui.helpers.FragmentProvider.showCountryDetailFragment;
 import static com.countriesinfo.app.utils.LocalUtils.matchDrawable;
 
 public class CountriesBinder extends DataBinder<Country, CountriesBinder.ViewHolder> {
@@ -32,7 +33,7 @@ public class CountriesBinder extends DataBinder<Country, CountriesBinder.ViewHol
             return;
 
         viewHolder.name.setText(c.name);
-        viewHolder.icon.setImageDrawable(drawable(matchDrawable(c.alpha2Code)));
+        viewHolder.icon.setImageDrawable(drawable(matchDrawable(getContext(), c.alpha2Code)));
         viewHolder.itemView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

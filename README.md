@@ -1,8 +1,8 @@
 # Countries Application
 
-<img src="https://cloud.githubusercontent.com/assets/3032751/14905707/d373c414-0db3-11e6-85df-c19bb526286a.png" width="23%"></img>
-<img src="https://cloud.githubusercontent.com/assets/3032751/14905708/d3749880-0db3-11e6-972c-45648b1b36d4.png" width="23%"></img>
-<img src="https://cloud.githubusercontent.com/assets/3032751/14905709/d375e190-0db3-11e6-9830-fd804f40b76c.png" width="23%"></img> 
+<img src="https://cloud.githubusercontent.com/assets/3032751/15190287/5f8064c6-17af-11e6-8f9c-39f6cb01e462.png" width="23%"></img>
+<img src="https://cloud.githubusercontent.com/assets/3032751/15190286/5f7fc8ae-17af-11e6-894a-1e02bd05fccb.png" width="23%"></img>
+<img src="https://cloud.githubusercontent.com/assets/3032751/15190285/5f7f8d58-17af-11e6-931b-1a94e7a7076e.png" width="23%"></img> 
 
 ## Introduction
 
@@ -28,18 +28,23 @@
 
 2. OnClick of item shows more details of the country.
 
+Note: Checks Network connection.
+
 ## Known Issues
 
 I recommend taking a look at missing features:
 
 Non persistent of data.
 
+Not tested.
+
+Flags used are OS and not of high resolution.
+
 ## How to install
 
 ### HockeyApp
 
 [Download build here:](https://rink.hockeyapp.net/apps/005c48f53a7b4e90912662646a9d8c68)
-
 
 ### Gradle
 

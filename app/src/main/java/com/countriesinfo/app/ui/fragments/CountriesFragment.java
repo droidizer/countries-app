@@ -6,22 +6,26 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import butterknife.Bind;
+import butterknife.OnClick;
 import com.common.android.utils.ContextHelper;
 import com.common.android.utils.interfaces.ICallback;
 import com.common.android.utils.ui.recyclerView.DataBindAdapter;
 import com.countriesinfo.app.R;
 import com.countriesinfo.app.model.Country;
-import com.countriesinfo.app.ui.BaseFragment;
 import com.countriesinfo.app.ui.MainActivity;
+import com.countriesinfo.app.ui.binders.CountriesBinder;
 import com.countriesinfo.app.utils.ItemDivider;
 import org.jetbrains.annotations.NotNull;
+import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.countriesinfo.app.network.RequestProvider.countryRequest;
 import static com.countriesinfo.app.utils.LocalUtils.matchDrawable;
 
 public class CountriesFragment extends BaseFragment {
+
     @NonNull
     @Bind(R.id.recyclerView)
     RecyclerView countriesList;
@@ -56,6 +60,10 @@ public class CountriesFragment extends BaseFragment {
     @Override
     protected void onViewCreated(Bundle savedInstanceState) {
         setupRecyclerView();
+        setRetainInstance(true);
+
+      //TODO Store countries
+        if(savedInstanceState==null)
         downloadCountries();
     }
 
@@ -65,9 +73,11 @@ public class CountriesFragment extends BaseFragment {
             public void onSuccess(List<Country> responseModel) {
                 if (responseModel == null)
                     return;
+
                 for (Country c : responseModel) {
-                    if (matchDrawable(c.alpha2Code) != 0)
+                    if (matchDrawable(ContextHelper.getContext(), c.alpha2Code) != 0) {
                         countryAdapter.add(c, CountriesBinder.class);
+                    }
                 }
             }
         });
@@ -79,5 +89,10 @@ public class CountriesFragment extends BaseFragment {
         countryAdapter = new DataBindAdapter<>();
         countriesList.setHasFixedSize(true);
         countriesList.setAdapter(countryAdapter);
+    }
+
+    @Override
+    public void onBackPressed() {
+            super.onBackPressed();
     }
 }

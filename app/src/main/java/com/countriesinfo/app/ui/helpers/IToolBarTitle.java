@@ -1,4 +1,4 @@
-package com.countriesinfo.app.ui;
+package com.countriesinfo.app.ui.helpers;
 
 import android.support.annotation.NonNull;
 

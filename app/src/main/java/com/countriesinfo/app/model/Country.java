@@ -1,4 +1,5 @@
 package com.countriesinfo.app.model;
+
 import com.google.gson.annotations.SerializedName;
 import org.parceler.Parcel;
 
@@ -27,7 +28,7 @@ public class Country {
     @SerializedName("alpha2Code")
     public String alpha2Code;
 
-   @SerializedName("callingCodes")
+    @SerializedName("callingCodes")
     public List<String> callingCodes;
 
     public String currency;
